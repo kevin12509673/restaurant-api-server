@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.model;
+package com.example.restaurantPlaform.restaurant;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

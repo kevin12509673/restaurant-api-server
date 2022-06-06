@@ -1,9 +1,6 @@
-package com.example.restaurantPlaform.service;
+package com.example.restaurantPlaform.userInfo;
 
 import java.util.List;
-
-import com.example.restaurantPlaform.model.UserInfo;
-import com.example.restaurantPlaform.model.UserInfoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

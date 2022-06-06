@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.model;
+package com.example.restaurantPlaform.restaurant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

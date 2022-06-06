@@ -1,12 +1,10 @@
-package com.example.restaurantPlaform.controller;
+package com.example.restaurantPlaform.userInfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
-import com.example.restaurantPlaform.model.UserInfo;
-import com.example.restaurantPlaform.service.UserInfoService;
 import com.example.restaurantPlaform.utils.ErrorResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;

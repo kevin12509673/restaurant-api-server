@@ -1,9 +1,7 @@
-package com.example.restaurantPlaform.controller;
+package com.example.restaurantPlaform.restaurant;
 
 import java.util.List;
 
-import com.example.restaurantPlaform.model.Restaurant;
-import com.example.restaurantPlaform.service.RestaurantService;
 import com.example.restaurantPlaform.utils.ErrorResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;

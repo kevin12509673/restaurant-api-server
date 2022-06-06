@@ -1,11 +1,8 @@
-package com.example.restaurantPlaform.service;
+package com.example.restaurantPlaform.restaurant;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
-
-import com.example.restaurantPlaform.model.Restaurant;
-import com.example.restaurantPlaform.model.RestaurantRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

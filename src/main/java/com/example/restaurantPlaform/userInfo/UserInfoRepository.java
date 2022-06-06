@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.model;
+package com.example.restaurantPlaform.userInfo;
 
 import java.util.Optional;
 
