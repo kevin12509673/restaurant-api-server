@@ -1,5 +1,8 @@
 package com.example.restaurantPlaform.utils.response;
 
+import lombok.Data;
+
+@Data
 public class ServiceResponse {
   private int errorCode;
   private String message;
@@ -12,45 +15,4 @@ public class ServiceResponse {
     this.data = data;
     this.success = success;
   }
-
-  // public static ServiceResponse success() {
-
-  // }
-
-  public int getErrorCode() {
-    return this.errorCode;
-  }
-
-  public void setErrorCode(int errorCode) {
-    this.errorCode = errorCode;
-  }
-
-  public String getMessage() {
-    return this.message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public String getData() {
-    return this.data;
-  }
-
-  public void setData(String data) {
-    this.data = data;
-  }
-
-  public boolean isSuccess() {
-    return this.success;
-  }
-
-  public boolean getSuccess() {
-    return this.success;
-  }
-
-  public void setSuccess(boolean success) {
-    this.success = success;
-  }
-
 }
