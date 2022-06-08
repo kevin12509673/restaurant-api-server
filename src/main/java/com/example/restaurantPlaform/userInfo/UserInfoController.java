@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
-
-import com.example.restaurantPlaform.utils.ErrorResponse;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +12,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.restaurantPlaform.utils.ErrorResponse;
 
 @RestController
 @RequestMapping(path = "api/users")
@@ -31,8 +33,19 @@ public class UserInfoController {
   }
 
   @GetMapping
-  public List<UserInfo> getUsers() {
-    return userInfoService.getUsers();
+  public List<UserInfo> getUsers(
+    @PathParam(value = "page") Integer page,
+    @PathParam(value = "size") Integer size
+  ) {
+    if (page == null || size == null) return userInfoService.getUsers();
+
+    return userInfoService.getUsers(page, size).toList();
+    
+  }
+
+  @GetMapping(path = "{id}")
+  public UserInfo getUserById(@PathVariable Long id) {
+    return userInfoService.getUserById(id);
   }
 
   @PostMapping()
