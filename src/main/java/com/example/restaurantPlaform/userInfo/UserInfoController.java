@@ -37,15 +37,14 @@ public class UserInfoController {
 
   @PostMapping()
   public ResponseEntity<?> saveUser(@Valid @RequestBody UserInfo user) {
-      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    // try {
-    //   userInfoService.saveUser(user);
-    //   return new ResponseEntity<>(HttpStatus.OK);
-    // } catch (IllegalStateException e) {
-    //   ErrorResponse errorResponse = new ErrorResponse();
-    //   errorResponse.setMessage(e.getMessage());
-    //   return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
-    // }
+    try {
+      userInfoService.saveUser(user);
+      return new ResponseEntity<>(HttpStatus.OK);
+    } catch (IllegalStateException e) {
+      ErrorResponse errorResponse = new ErrorResponse();
+      errorResponse.setMessage(e.getMessage());
+      return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
   }
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
