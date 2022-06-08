@@ -22,7 +22,7 @@ public class UserInfo {
   @SequenceGenerator(
     name = "user_sequence",
     sequenceName = "user_sequence",
-    initialValue = 1
+    initialValue = 1001
   )
   @GeneratedValue(
     generator = "user_sequence",
