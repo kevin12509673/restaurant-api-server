@@ -52,20 +52,4 @@ public class UserInfoController {
       return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
     }
   }
-
-  // @ResponseStatus(HttpStatus.BAD_REQUEST)
-  // @ExceptionHandler(MethodArgumentNotValidException.class)
-  // public ResponseEntity<ErrorResponse> handleValidExceptions(MethodArgumentNotValidException ex) {
-  //   List<String> errors = new ArrayList<>();
-  //   ex.getBindingResult().getAllErrors().forEach((error) -> {
-  //     errors.add(error.getDefaultMessage());
-  //   });
-
-  //   String errorString = String.join(", ", errors);
-
-  //   ErrorResponse errorResponse = new ErrorResponse();
-  //   errorResponse.setMessage(errorString);
-
-  //   return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
-  // }
 }
