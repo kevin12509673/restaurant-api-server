@@ -33,10 +33,7 @@ public class UserInfoController {
     @PathParam(value = "page") Integer page,
     @PathParam(value = "size") Integer size
   ) {
-    if (page == null || size == null) return userInfoService.getUsers();
-
-    return userInfoService.getUsers(page, size).toList();
-    
+    return userInfoService.getUsers(page, size);
   }
 
   @GetMapping(path = "{id}")

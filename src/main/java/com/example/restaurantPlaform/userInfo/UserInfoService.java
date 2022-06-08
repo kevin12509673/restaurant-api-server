@@ -3,7 +3,6 @@ package com.example.restaurantPlaform.userInfo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +16,15 @@ public class UserInfoService {
     this.userInfoRepository = userInfoRepository;
   }
 
-  public List<UserInfo> getUsers() {
-    return userInfoRepository.findAll();
-  }
+  // public List<UserInfo> getUsers() {
+  //   return userInfoRepository.findAll();
+  // }
 
-  public Page<UserInfo> getUsers(Integer page, Integer size) {
+  public List<UserInfo> getUsers(Integer page, Integer size) {
+    if (page == null || size == null) return userInfoRepository.findAll();
+
     PageRequest pageRequest = PageRequest.of(page, size);
-    return userInfoRepository.findAll(pageRequest);
+    return userInfoRepository.findAll(pageRequest).toList();
   }
 
   public void saveUser(UserInfo user) throws IllegalStateException {
