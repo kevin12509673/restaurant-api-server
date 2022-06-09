@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.restaurantPlaform.utils.ErrorResponse;
 
 @RestController
-@RequestMapping(path = "api/users")
+@RequestMapping(path = "/api/users")
 public class UserInfoController {
   
   private final UserInfoService userInfoService;
@@ -33,7 +33,7 @@ public class UserInfoController {
     return userInfoService.getUsers(pageRequest);
   }
 
-  @GetMapping(path = "{id}")
+  @GetMapping(path = "/{id}")
   public UserInfo getUserById(@PathVariable Long id) {
     return userInfoService.getUserById(id);
   }

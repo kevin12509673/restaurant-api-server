@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.restaurantPlaform.utils.ErrorResponse;
 
 @RestController
-@RequestMapping(path = "api/restaurants")
+@RequestMapping(path = "/api/restaurants")
 public class RestaurantController {
   
   private final RestaurantService restaurantService;
@@ -38,12 +38,12 @@ public class RestaurantController {
     restaurantService.saveRestaurant(restaurant);
   }
 
-  @PutMapping(path = "{restaurantId}")
+  @PutMapping(path = "/{restaurantId}")
   public void updateRestaurant(@PathVariable Long restaurantId, @RequestBody Restaurant restaurant) {
     restaurantService.updateRestaurant(restaurantId, restaurant);
   }
 
-  @DeleteMapping(path = "{restaurantId}")
+  @DeleteMapping(path = "/{restaurantId}")
   public ResponseEntity<ErrorResponse> deleteRestaurant(@PathVariable Long restaurantId) {
     try {
       restaurantService.deleteRestaurant(restaurantId);
