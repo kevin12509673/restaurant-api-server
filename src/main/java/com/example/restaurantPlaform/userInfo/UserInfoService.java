@@ -16,10 +16,6 @@ public class UserInfoService {
     this.userInfoRepository = userInfoRepository;
   }
 
-  // public List<UserInfo> getUsers() {
-  //   return userInfoRepository.findAll();
-  // }
-
   public List<UserInfo> getUsers(int page, int size) {
     PageRequest pageRequest = PageRequest.of(page, size);
     return userInfoRepository.findAll(pageRequest).toList();
