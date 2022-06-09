@@ -3,7 +3,7 @@ package com.example.restaurantPlaform.userInfo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,9 +16,8 @@ public class UserInfoService {
     this.userInfoRepository = userInfoRepository;
   }
 
-  public List<UserInfo> getUsers(int page, int size) {
-    PageRequest pageRequest = PageRequest.of(page, size);
-    return userInfoRepository.findAll(pageRequest).toList();
+  public List<UserInfo> getUsers(Pageable pageable) {
+    return userInfoRepository.findAll(pageable).toList();
   }
 
   public void saveUser(UserInfo user) throws IllegalStateException {
