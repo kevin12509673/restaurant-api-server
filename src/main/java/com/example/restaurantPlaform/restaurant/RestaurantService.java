@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,8 +18,11 @@ public class RestaurantService {
     this.restaurantRepository = restaurantRepository;
   }
 
-  public List<Restaurant> getRestaurants() {
-    return restaurantRepository.findAll();
+  public List<Restaurant> getRestaurants(Integer page, Integer size) {
+    if (page == null || size == null) restaurantRepository.findAll();
+
+    PageRequest pageRequest = PageRequest.of(page, size);
+    return restaurantRepository.findAll(pageRequest).toList();
   }
 
   public void saveRestaurant(Restaurant restaurant) {
