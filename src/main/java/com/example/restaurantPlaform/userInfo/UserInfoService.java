@@ -20,9 +20,7 @@ public class UserInfoService {
   //   return userInfoRepository.findAll();
   // }
 
-  public List<UserInfo> getUsers(Integer page, Integer size) {
-    if (page == null || size == null) return userInfoRepository.findAll();
-
+  public List<UserInfo> getUsers(int page, int size) {
     PageRequest pageRequest = PageRequest.of(page, size);
     return userInfoRepository.findAll(pageRequest).toList();
   }

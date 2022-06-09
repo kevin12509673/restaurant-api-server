@@ -18,9 +18,7 @@ public class RestaurantService {
     this.restaurantRepository = restaurantRepository;
   }
 
-  public List<Restaurant> getRestaurants(Integer page, Integer size) {
-    if (page == null || size == null) restaurantRepository.findAll();
-
+  public List<Restaurant> getRestaurants(int page, int size) {
     PageRequest pageRequest = PageRequest.of(page, size);
     return restaurantRepository.findAll(pageRequest).toList();
   }
