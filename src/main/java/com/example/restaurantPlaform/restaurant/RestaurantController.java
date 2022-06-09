@@ -2,8 +2,6 @@ package com.example.restaurantPlaform.restaurant;
 
 import java.util.List;
 
-import com.example.restaurantPlaform.utils.ErrorResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.restaurantPlaform.utils.ErrorResponse;
 
 @RestController
 @RequestMapping(path = "api/restaurants")
@@ -28,8 +29,11 @@ public class RestaurantController {
   }
 
   @GetMapping
-  public List<Restaurant> getRestaurants() {
-    return restaurantService.getRestaurants();
+  public List<Restaurant> getRestaurants(
+    @RequestParam(value = "page", defaultValue = "0") Integer page,
+    @RequestParam(value = "size", defaultValue = "10") Integer size
+  ) {
+    return restaurantService.getRestaurants(page, size);
   }
 
   @PostMapping
