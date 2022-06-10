@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -47,6 +47,7 @@ public class UserInfo {
     nullable = false
   )
   @NotBlank(message = "Email is mandatory")
+  @Email(message = "Incorrect email format")
   private String email;
 
   @Column(
@@ -65,17 +66,6 @@ public class UserInfo {
   @Transient
   @Getter(value = AccessLevel.NONE)
   private Integer age;
-
-  public UserInfo(String name, String email, String password, LocalDate dob, Integer age) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
-    this.dob = dob;
-    this.age = age;
-  }
-
-  public UserInfo() {
-  }
 
   public Integer getAge() {
     return Period.between((this.dob == null ? LocalDate.now() : this.dob), LocalDate.now()).getYears();
