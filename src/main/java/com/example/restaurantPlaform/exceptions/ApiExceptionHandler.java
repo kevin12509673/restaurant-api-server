@@ -17,7 +17,7 @@ public class ApiExceptionHandler {
   @ExceptionHandler(value = {MethodArgumentNotValidException.class})
   public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
     List<String> errors = new ArrayList<>();
-    e.getBindingResult().getAllErrors().forEach((error) -> {
+    e.getAllErrors().forEach((error) -> {
       errors.add(error.getDefaultMessage());
     });
 
