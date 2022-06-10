@@ -21,7 +21,10 @@ public class RestaurantService {
   public List<Restaurant> getRestaurants(Pageable pageable) {
     return restaurantRepository.findAll(pageable).toList();
   }
-
+  
+  public Restaurant getRestaurant(Long restaurantId) {
+    return restaurantRepository.findById(restaurantId).orElseThrow(() -> new IllegalStateException("Restaurant not found"));
+  }
   public void saveRestaurant(Restaurant restaurant) {
     restaurantRepository.save(restaurant);
   }
@@ -43,4 +46,5 @@ public class RestaurantService {
 
     restaurantRepository.deleteById(restaurantId);
   }
+
 }

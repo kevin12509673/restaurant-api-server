@@ -33,6 +33,11 @@ public class RestaurantController {
     return restaurantService.getRestaurants(pageable);
   }
 
+  @GetMapping(path = "/{restaurantId}")
+  public Restaurant getRestaurant(@PathVariable Long restaurantId) {
+    return restaurantService.getRestaurant(restaurantId);
+  }
+
   @PostMapping
   public void saveRestaurant(@RequestBody Restaurant restaurant) {
     restaurantService.saveRestaurant(restaurant);
