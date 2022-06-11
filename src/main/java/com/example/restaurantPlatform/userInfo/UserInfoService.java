@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.userInfo;
+package com.example.restaurantPlatform.userInfo;
 
 import java.util.List;
 
@@ -22,7 +22,8 @@ public class UserInfoService {
 
   public void saveUser(UserInfo user) throws IllegalStateException {
     Boolean sameEmailIsPresent = userInfoRepository.findUserInfoByEmail(user.getEmail()).isPresent();
-    if (sameEmailIsPresent) throw new IllegalStateException("User with the same email has been registered");
+    if (sameEmailIsPresent)
+      throw new IllegalStateException("User with the same email has been registered");
 
     userInfoRepository.save(user);
   }

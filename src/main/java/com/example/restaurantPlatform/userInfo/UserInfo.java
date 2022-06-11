@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.userInfo;
+package com.example.restaurantPlatform.userInfo;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -26,39 +26,24 @@ import lombok.Getter;
 public class UserInfo {
 
   @Id
-  @SequenceGenerator(
-    name = "user_sequence",
-    sequenceName = "user_sequence",
-    initialValue = 1001
-  )
-  @GeneratedValue(
-    generator = "user_sequence",
-    strategy = GenerationType.SEQUENCE
-  )
+  @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", initialValue = 1001)
+  @GeneratedValue(generator = "user_sequence", strategy = GenerationType.SEQUENCE)
   private Long id;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   @NotBlank(message = "Name is mandatory")
   private String name;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   @NotBlank(message = "Email is mandatory")
   @Email(message = "Incorrect email format")
   private String email;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   @NotBlank(message = "Password is mandatory")
   private String password;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   @Past(message = "Date must be a date from the past")
   @NotNull(message = "Date of birth is mandatory")
   private LocalDate dob;

@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.exceptions;
+package com.example.restaurantPlatform.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.example.restaurantPlaform.utils.ErrorResponse;
+import com.example.restaurantPlatform.utils.ErrorResponse;
 
 @ControllerAdvice
 public class ApiExceptionHandler {
-  
-  @ExceptionHandler(value = {MethodArgumentNotValidException.class})
+
+  @ExceptionHandler(value = { MethodArgumentNotValidException.class })
   public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
     List<String> errors = new ArrayList<>();
     e.getAllErrors().forEach((error) -> {

@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.userInfo;
+package com.example.restaurantPlatform.userInfo;
 
 public enum UserInfoServiceError {
   Null_Name(1001, "User name is null"),

@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.restaurant;
+package com.example.restaurantPlatform.restaurant;
 
 import java.util.List;
 
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.restaurantPlaform.utils.ErrorResponse;
+import com.example.restaurantPlatform.utils.ErrorResponse;
 
 @RestController
 @RequestMapping(path = "/api/restaurants")
 public class RestaurantController {
-  
+
   private final RestaurantService restaurantService;
 
   @Autowired

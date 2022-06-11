@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.userInfo;
+package com.example.restaurantPlatform.userInfo;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.utils.response;
+package com.example.restaurantPlatform.utils.response;
 
 import lombok.Data;
 

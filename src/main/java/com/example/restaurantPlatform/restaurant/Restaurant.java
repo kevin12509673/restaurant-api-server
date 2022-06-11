@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.restaurant;
+package com.example.restaurantPlatform.restaurant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,30 +15,17 @@ import lombok.Data;
 @Data
 public class Restaurant {
   @Id
-  @SequenceGenerator(
-    name = "restaurant_sequence",
-    sequenceName = "restaurant_sequence",
-    allocationSize = 1
-  )
-  @GeneratedValue(
-    generator = "restaurant_sequence",
-    strategy = GenerationType.SEQUENCE
-  )
+  @SequenceGenerator(name = "restaurant_sequence", sequenceName = "restaurant_sequence", allocationSize = 1)
+  @GeneratedValue(generator = "restaurant_sequence", strategy = GenerationType.SEQUENCE)
   private Long id;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   private String name;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   private String address;
 
-  @Column(
-    nullable = false
-  )
+  @Column(nullable = false)
   private Float rate;
 
   public Restaurant(String name, String address, Float rate) {

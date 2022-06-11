@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.utils;
+package com.example.restaurantPlatform.utils;
 
 public class ErrorResponse {
   private String message;

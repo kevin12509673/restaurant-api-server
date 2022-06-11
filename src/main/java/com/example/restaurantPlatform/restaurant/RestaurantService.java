@@ -1,4 +1,4 @@
-package com.example.restaurantPlaform.restaurant;
+package com.example.restaurantPlatform.restaurant;
 
 import java.util.List;
 
@@ -21,21 +21,27 @@ public class RestaurantService {
   public List<Restaurant> getRestaurants(Pageable pageable) {
     return restaurantRepository.findAll(pageable).toList();
   }
-  
+
   public Restaurant getRestaurant(Long restaurantId) {
-    return restaurantRepository.findById(restaurantId).orElseThrow(() -> new IllegalStateException("Restaurant not found"));
+    return restaurantRepository.findById(restaurantId)
+        .orElseThrow(() -> new IllegalStateException("Restaurant not found"));
   }
+
   public void saveRestaurant(Restaurant restaurant) {
     restaurantRepository.save(restaurant);
   }
 
   @Transactional
   public void updateRestaurant(Long restaurantId, Restaurant restaurant) {
-    Restaurant targetRestaurant = restaurantRepository.findById(restaurantId).orElseThrow(() -> new IllegalStateException("Restarant now found"));
+    Restaurant targetRestaurant = restaurantRepository.findById(restaurantId)
+        .orElseThrow(() -> new IllegalStateException("Restarant now found"));
 
-    if (restaurant.getName() != null) targetRestaurant.setName(restaurant.getName());
-    if (restaurant.getRate() != null) targetRestaurant.setRate(restaurant.getRate());
-    if (restaurant.getAddress() != null) targetRestaurant.setAddress(restaurant.getAddress());
+    if (restaurant.getName() != null)
+      targetRestaurant.setName(restaurant.getName());
+    if (restaurant.getRate() != null)
+      targetRestaurant.setRate(restaurant.getRate());
+    if (restaurant.getAddress() != null)
+      targetRestaurant.setAddress(restaurant.getAddress());
   }
 
   public void deleteRestaurant(Long restaurantId) throws IllegalStateException {
