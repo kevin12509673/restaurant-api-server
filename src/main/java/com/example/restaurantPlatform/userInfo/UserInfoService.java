@@ -21,7 +21,7 @@ public class UserInfoService {
   }
 
   public void saveUser(UserInfo user) throws IllegalStateException {
-    Boolean sameEmailIsPresent = userInfoRepository.findUserInfoByEmail(user.getEmail()).isPresent();
+    boolean sameEmailIsPresent = userInfoRepository.findUserInfoByEmail(user.getEmail()).isPresent();
     if (sameEmailIsPresent)
       throw new IllegalStateException("User with the same email has been registered");
 
