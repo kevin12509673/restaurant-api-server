@@ -23,9 +23,12 @@ public class RestaurantController {
 
   private final RestaurantService restaurantService;
 
+  private final RestaurantConverter restaurantConverter;
+
   @Autowired
-  public RestaurantController(RestaurantService restaurantService) {
+  public RestaurantController(RestaurantService restaurantService, RestaurantConverter restaurantConverter) {
     this.restaurantService = restaurantService;
+    this.restaurantConverter = restaurantConverter;
   }
 
   @GetMapping
@@ -39,12 +42,14 @@ public class RestaurantController {
   }
 
   @PostMapping
-  public void saveRestaurant(@RequestBody Restaurant restaurant) {
+  public void saveRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
+    Restaurant restaurant = restaurantConverter.convertDTOtoEntity(restaurantDTO);
     restaurantService.saveRestaurant(restaurant);
   }
 
   @PutMapping(path = "/{restaurantId}")
-  public void updateRestaurant(@PathVariable Long restaurantId, @RequestBody Restaurant restaurant) {
+  public void updateRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantDTO restaurantDTO) {
+    Restaurant restaurant = restaurantConverter.convertDTOtoEntity(restaurantDTO);
     restaurantService.updateRestaurant(restaurantId, restaurant);
   }
 
@@ -55,7 +60,7 @@ public class RestaurantController {
       return new ResponseEntity<>(HttpStatus.OK);
     } catch (IllegalStateException illegalStateException) {
       ErrorResponse errorResponse = new ErrorResponse();
-      errorResponse.setMessage("Restarant no found");
+      errorResponse.setMessage("Restaurant no found");
       return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
   }
