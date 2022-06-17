@@ -19,6 +19,7 @@ import javax.validation.constraints.Past;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table
@@ -50,6 +51,7 @@ public class UserInfo {
 
   @Transient
   @Getter(value = AccessLevel.NONE)
+  @Setter(value = AccessLevel.NONE)
   private Integer age;
 
   public Integer getAge() {
