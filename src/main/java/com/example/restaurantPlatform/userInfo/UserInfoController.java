@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,8 @@ public class UserInfoController {
   }
 
   @GetMapping
-  public List<UserInfo> getUsers(Pageable pageRequest) {
+  public List<UserInfo> getUsers(
+      @ParameterObject @PageableDefault(size = 10, sort = "name") Pageable pageRequest) {
     return userInfoService.getUsers(pageRequest);
   }
 
