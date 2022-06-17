@@ -41,13 +41,13 @@ public class RestaurantController {
 
   @PostMapping
   public void saveRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
-    Restaurant restaurant = restaurantConverter.convertDTOtoEntity(restaurantDTO);
+    Restaurant restaurant = restaurantConverter.convertDtoToEntity(restaurantDTO);
     restaurantService.saveRestaurant(restaurant);
   }
 
   @PutMapping(path = "/{restaurantId}")
   public void updateRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantDTO restaurantDTO) {
-    Restaurant restaurant = restaurantConverter.convertDTOtoEntity(restaurantDTO);
+    Restaurant restaurant = restaurantConverter.convertDtoToEntity(restaurantDTO);
     restaurantService.updateRestaurant(restaurantId, restaurant);
   }
 

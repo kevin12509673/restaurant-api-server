@@ -2,8 +2,10 @@ package com.example.restaurantPlatform.restaurant;
 
 import org.springframework.stereotype.Component;
 
+import com.example.restaurantPlatform.converter.EntityConverter;
+
 @Component
-public class RestaurantConverter {
+public class RestaurantConverter implements EntityConverter<RestaurantDTO, Restaurant> {
   public RestaurantDTO convertEntityToDto(Restaurant restaurant) {
     RestaurantDTO restaurantDTO = new RestaurantDTO();
     restaurant.setId(restaurant.getId());
@@ -13,7 +15,7 @@ public class RestaurantConverter {
     return restaurantDTO;
   }
 
-  public Restaurant convertDTOtoEntity(RestaurantDTO restaurantDTO) {
+  public Restaurant convertDtoToEntity(RestaurantDTO restaurantDTO) {
     return new Restaurant(
         restaurantDTO.getName(),
         restaurantDTO.getAddress(),
