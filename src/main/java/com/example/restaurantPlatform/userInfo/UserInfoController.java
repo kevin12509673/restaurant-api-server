@@ -21,9 +21,11 @@ import com.example.restaurantPlatform.utils.ErrorResponse;
 public class UserInfoController {
 
   private final UserInfoService userInfoService;
+  private final UserInfoConverter userInfoConverter;
 
-  public UserInfoController(UserInfoService userInfoService) {
+  public UserInfoController(UserInfoService userInfoService, UserInfoConverterImpl userInfoConverterImpl) {
     this.userInfoService = userInfoService;
+    this.userInfoConverter = userInfoConverterImpl;
   }
 
   @GetMapping
@@ -37,9 +39,10 @@ public class UserInfoController {
   }
 
   @PostMapping()
-  public ResponseEntity<?> saveUser(@Valid @RequestBody UserInfo user) {
+  public ResponseEntity<?> saveUser(@Valid @RequestBody UserInfoDTO userInfoDTO) {
     try {
-      userInfoService.saveUser(user);
+      UserInfo userInfo = userInfoConverter.convertDtoToEntity(userInfoDTO);
+      userInfoService.saveUser(userInfo);
       return new ResponseEntity<>(HttpStatus.OK);
     } catch (IllegalStateException e) {
       ErrorResponse errorResponse = new ErrorResponse();
