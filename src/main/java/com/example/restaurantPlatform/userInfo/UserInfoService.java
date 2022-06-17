@@ -18,12 +18,12 @@ public class UserInfoService {
     return userInfoRepository.findAll(pageable).toList();
   }
 
-  public void saveUser(UserInfo user) throws IllegalStateException {
-    boolean sameEmailIsPresent = userInfoRepository.findUserInfoByEmail(user.getEmail()).isPresent();
+  public void saveUser(UserInfo userInfo) throws IllegalStateException {
+    boolean sameEmailIsPresent = userInfoRepository.findUserInfoByEmail(userInfo.getEmail()).isPresent();
     if (sameEmailIsPresent)
       throw new IllegalStateException("User with the same email has been registered");
 
-    userInfoRepository.save(user);
+    userInfoRepository.save(userInfo);
   }
 
   public UserInfo getUserById(Long id) {
