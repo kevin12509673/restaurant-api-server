@@ -23,9 +23,9 @@ public class UserInfoController {
   private final UserInfoService userInfoService;
   private final UserInfoConverter userInfoConverter;
 
-  public UserInfoController(UserInfoService userInfoService, UserInfoConverterImpl userInfoConverterImpl) {
+  public UserInfoController(UserInfoService userInfoService, UserInfoConverter userInfoConverter) {
     this.userInfoService = userInfoService;
-    this.userInfoConverter = userInfoConverterImpl;
+    this.userInfoConverter = userInfoConverter;
   }
 
   @GetMapping
