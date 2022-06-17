@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,6 @@ public class RestaurantService {
 
   private final RestaurantRepository restaurantRepository;
 
-  @Autowired
   public RestaurantService(RestaurantRepository restaurantRepository) {
     this.restaurantRepository = restaurantRepository;
   }

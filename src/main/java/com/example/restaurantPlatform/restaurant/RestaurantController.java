@@ -2,7 +2,6 @@ package com.example.restaurantPlatform.restaurant;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,6 @@ public class RestaurantController {
 
   private final RestaurantConverter restaurantConverter;
 
-  @Autowired
   public RestaurantController(RestaurantService restaurantService, RestaurantConverter restaurantConverter) {
     this.restaurantService = restaurantService;
     this.restaurantConverter = restaurantConverter;
